@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText, IonRouterLink, IonIcon } from '@ionic/react';
 import './Login.scss';
 import { setIsLoggedIn, setUsername } from '../data/user/user.actions';
 import { connect } from '../data/connect';
@@ -35,7 +35,7 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
     if(username && password) {
       await setIsLoggedIn(true);
       await setUsernameAction(username);
-      history.push('/tabs/schedule', {direction: 'none'});
+      history.push('/home', {direction: 'none'});
     }
   };
 
@@ -43,8 +43,7 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
     <IonPage id="login-page">
       <IonHeader>
         <IonToolbar>
-          <IonButtons slot="start">
-            <IonMenuButton></IonMenuButton>
+          <IonButtons slot="start">   
           </IonButtons>
           <IonTitle>Login to IFCM</IonTitle>
         </IonToolbar>
@@ -57,10 +56,12 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
 
         <form noValidate onSubmit={login}>
           <IonList>
-            <IonButton expand="block">Facebook Connect</IonButton>
-            <IonButton expand="block">Instagram Connect</IonButton>
-            <IonButton expand="block">Twitter Connect</IonButton>
-            <p className="gray" > OR</p>
+            <IonButton expand="block" color="facebook" className="margin"> <IonIcon name="logo-facebook" className="margin-logo"></IonIcon> Facebook Connect</IonButton>
+            <IonButton expand="block" color="instagram" className="margin"><IonIcon name="logo-instagram" className="margin-logo"></IonIcon> Instagram Connect</IonButton>
+            <IonButton expand="block" color="twitter" className="margin"> <IonIcon name="logo-twitter" className="margin-logo"></IonIcon> Twitter Connect</IonButton>
+            
+            <IonText className="ion-text-center"> <p className="gray" > OR</p></IonText>
+            
             <IonItem>
               <IonLabel position="stacked" color="primary">Username</IonLabel>
               <IonInput name="username" type="text" value={username} spellCheck={false} autocapitalize="off" onIonChange={e => setUsername(e.detail.value!)}
@@ -93,8 +94,11 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
             </IonCol>
           </IonRow>
         </form>
-        <a href="/forgot"> Forgot password ? </a>
-        <p>Don't have an account ? <a href="/sign"> Sign up</a></p>
+        <IonText className="ion-text-center">
+          <IonRouterLink href="/forgot" class="forgot">Forgot Password ?</IonRouterLink>
+          <p>Don't have an account ? <IonRouterLink href="/signup">Sign up</IonRouterLink></p>
+        </IonText>
+        
 
       </IonContent>
 

@@ -123,7 +123,7 @@
   --ion-color-twitter-shade: #1a8ed7;
   --ion-color-twitter-tint: #34aaf5;
 
-  --ion-color-instagram: #5956d8;
+  --ion-color-instagram: #E1306C;
   --ion-color-instagram-rgb: 89,86,216;
   --ion-color-instagram-contrast: #ffffff;
   --ion-color-instagram-contrast-rgb: 255,255,255;
@@ -209,7 +209,7 @@
 }
 
 .ion-color-instagram {
-  --ion-color-base: #9537BC;
+  --ion-color-base: #E1306C;
   --ion-color-base-rgb: 149,55,188;
   --ion-color-contrast: #ffffff;
   --ion-color-contrast-rgb: 255,255,255;
