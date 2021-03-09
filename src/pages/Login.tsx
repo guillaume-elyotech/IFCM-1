@@ -46,17 +46,21 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
           <IonButtons slot="start">
             <IonMenuButton></IonMenuButton>
           </IonButtons>
-          <IonTitle>Login</IonTitle>
+          <IonTitle>Login to IFCM</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
 
         <div className="login-logo">
-          <img src="assets/img/appicon.svg" alt="Ionic logo" />
+          <img src="assets/img/ifcm_logo.png" alt="ifcm Logo" />
         </div>
 
         <form noValidate onSubmit={login}>
           <IonList>
+            <IonButton expand="block">Facebook Connect</IonButton>
+            <IonButton expand="block">Instagram Connect</IonButton>
+            <IonButton expand="block">Twitter Connect</IonButton>
+            <p className="gray" > OR</p>
             <IonItem>
               <IonLabel position="stacked" color="primary">Username</IonLabel>
               <IonInput name="username" type="text" value={username} spellCheck={false} autocapitalize="off" onIonChange={e => setUsername(e.detail.value!)}
@@ -87,11 +91,10 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
             <IonCol>
               <IonButton type="submit" expand="block">Login</IonButton>
             </IonCol>
-            <IonCol>
-              <IonButton routerLink="/signup" color="light" expand="block">Signup</IonButton>
-            </IonCol>
           </IonRow>
         </form>
+        <a href="/forgot"> Forgot password ? </a>
+        <p>Don't have an account ? <a href="/sign"> Sign up</a></p>
 
       </IonContent>
 
