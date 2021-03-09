@@ -21,14 +21,13 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
   const [email, setemail] = useState('');
   const [firstName, setfirstName] = useState('');
   const [lastName, setlastName] = useState('');
-  const [verifyPassword, setverifyPassword] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [confirmPasswordError, setconfirmPasswordError]= useState(false);
   const [emailError, setemailError] = useState(false);
   const [firstNameError, setfirstNameError] = useState(false);
   const [lastNameError, setlastNameError] = useState(false);
-  const [verifyPasswordError, setverifyPasswordError] = useState(false);
+ 
 
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,9 +46,6 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
     }
     if(!lastName) {
       setlastNameError(true);
-    }
-    if(password !== confirmPassword) {
-      setverifyPasswordError(true);
     }
 
     if(password && confirmPassword && email && firstName && lastName) {
@@ -138,7 +134,7 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
               }}>
               </IonInput>
             </IonItem>
-            {formSubmitted && confirmPassword && <IonText color="danger">
+            {formSubmitted && confirmPasswordError && <IonText color="danger">
               <p className="ion-padding-start">
                 Confirm Password is required
               </p>
