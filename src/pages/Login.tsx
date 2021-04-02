@@ -63,7 +63,7 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
             <IonText className="ion-text-center"> <p className="gray" > OR</p></IonText>
             
             <IonItem>
-              <IonLabel position="stacked" color="primary">Username</IonLabel>
+              <IonLabel position="stacked" color="primary">Email</IonLabel>
               <IonInput name="username" type="text" value={username} spellCheck={false} autocapitalize="off" onIonChange={e => setUsername(e.detail.value!)}
                 required>
               </IonInput>
