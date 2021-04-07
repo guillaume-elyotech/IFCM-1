@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText, IonRouterLink, IonIcon } from '@ionic/react';
 import './Login.scss';
 import { setIsLoggedIn, setUsername } from '../data/user/user.actions';
-import { connect } from '../data/connect';
+ import { connect } from '../data/connect';
 import { RouteComponentProps } from 'react-router';
 
 interface OwnProps extends RouteComponentProps {}
@@ -58,7 +58,9 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
           <IonList>
             <IonButton expand="block" color="facebook" className="margin"> <IonIcon name="logo-facebook" className="margin-logo"></IonIcon> Facebook Connect</IonButton>
             <IonButton expand="block" color="instagram" className="margin"><IonIcon name="logo-instagram" className="margin-logo"></IonIcon> Instagram Connect</IonButton>
-            <IonButton expand="block" color="twitter" className="margin"> <IonIcon name="logo-twitter" className="margin-logo"></IonIcon> Twitter Connect</IonButton>
+            <IonButton expand="block" color="twitter" className="margin"> <IonIcon name="logo-twitter" className="margin-logo padding-right"></IonIcon> 
+            <IonText className="twitter">Twitter Connect</IonText></IonButton>
+            
             
             <IonText className="ion-text-center"> <p className="gray" > OR</p></IonText>
             

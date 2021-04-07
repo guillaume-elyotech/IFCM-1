@@ -97,7 +97,7 @@ const Welcome: React.FC<TutorialProps> = ({ history, setHasSeenTutorial, setMenu
     </IonPage>
   );
 };
-
+//
 export default connect<OwnProps, {}, DispatchProps>({
   mapDispatchToProps: ({
     setHasSeenTutorial,
